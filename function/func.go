@@ -1,6 +1,6 @@
 package main
 
-// simple function with parameter and return value
+// simple function with parameter and return value (This parameter varArgs, named Variadic Function)
 func sumNum(number ...int) int32 {
 	total := 0
 	for _, num := range number {
