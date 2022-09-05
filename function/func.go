@@ -23,6 +23,11 @@ func no_type(type_identity string, no_identity string)(tipe, no_tipe string){
 	return
 }
 
+// function save in variable
+func bye(name string) string{
+	return "bye "+name
+}
+
 func main() {
 	pleaseSum := sumNum(3,2,3,4,5,1)
 	println(pleaseSum)
@@ -32,4 +37,7 @@ func main() {
 
 	tipe_identitas, no_identitas := no_type("ktp", "6736497932430002")
 	println(tipe_identitas, no_identitas)
+
+	goodBye := bye
+	println(goodBye("Hari"))
 }
