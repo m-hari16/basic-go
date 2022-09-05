@@ -41,6 +41,15 @@ func filterFuck(word string) string{
 	}
 }
 
+// recursive function 
+func faktorial(val int)int{
+	if val == 1 {
+		return 1
+	} else{
+		return val*faktorial(val - 1)
+	}
+}
+
 func main() {
 	pleaseSum := sumNum(3,2,3,4,5,1)
 	println(pleaseSum)
@@ -68,4 +77,7 @@ func main() {
 	}
 	myWord3 := showComment("asu", filterAsu)
 	println(myWord3)
+
+	faktorialBilangan := faktorial
+	println(faktorialBilangan(3))
 }
