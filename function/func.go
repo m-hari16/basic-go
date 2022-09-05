@@ -28,6 +28,19 @@ func bye(name string) string{
 	return "bye "+name
 }
 
+// function as parameter
+func showComment(word string, filter func(string)string) string{
+	filteredWord := filter
+	return filteredWord(word)
+}
+func filterFuck(word string) string{
+	if word == "fuck"{
+		return "..."
+	} else {
+		return word
+	}
+}
+
 func main() {
 	pleaseSum := sumNum(3,2,3,4,5,1)
 	println(pleaseSum)
@@ -40,4 +53,8 @@ func main() {
 
 	goodBye := bye
 	println(goodBye("Hari"))
+
+	myWord1 := showComment("fuck", filterFuck)
+	myWord2 := showComment("Hi", filterFuck)
+	println(myWord1, myWord2)
 }
