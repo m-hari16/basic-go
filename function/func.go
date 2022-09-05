@@ -57,4 +57,15 @@ func main() {
 	myWord1 := showComment("fuck", filterFuck)
 	myWord2 := showComment("Hi", filterFuck)
 	println(myWord1, myWord2)
+
+	// anonymous function
+	filterAsu := func (word string) string {
+		if word == "asu"{
+			return "..."
+		} else{
+			return word
+		}
+	}
+	myWord3 := showComment("asu", filterAsu)
+	println(myWord3)
 }
