@@ -2,6 +2,7 @@ package main
 
 // simple function with parameter and return value (This parameter varArgs, named Variadic Function)
 func sumNum(number ...int) int32 {
+	defer logging()
 	total := 0
 	for _, num := range number {
 		total += num
@@ -12,11 +13,13 @@ func sumNum(number ...int) int32 {
 
 // simple function with parameter and two return value
 func showFullName(fname string, lname string) (string, string){
+	defer logging()
 	return fname, lname
 }
 
 // we can use name for return value of function
 func no_type(type_identity string, no_identity string)(tipe, no_tipe string){
+	defer logging()
 	tipe = type_identity
 	no_tipe = no_identity
 
@@ -25,11 +28,13 @@ func no_type(type_identity string, no_identity string)(tipe, no_tipe string){
 
 // function save in variable
 func bye(name string) string{
+	defer logging()
 	return "bye "+name
 }
 
 // function as parameter
 func showComment(word string, filter func(string)string) string{
+	defer logging()
 	filteredWord := filter
 	return filteredWord(word)
 }
@@ -48,6 +53,11 @@ func faktorial(val int)int{
 	} else{
 		return val*faktorial(val - 1)
 	}
+}
+
+// function for defer
+func logging(){
+	println("Ini adalah log")
 }
 
 func main() {
