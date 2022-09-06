@@ -13,13 +13,11 @@ func sumNum(number ...int) int32 {
 
 // simple function with parameter and two return value
 func showFullName(fname string, lname string) (string, string){
-	defer logging()
 	return fname, lname
 }
 
 // we can use name for return value of function
 func no_type(type_identity string, no_identity string)(tipe, no_tipe string){
-	defer logging()
 	tipe = type_identity
 	no_tipe = no_identity
 
@@ -28,13 +26,11 @@ func no_type(type_identity string, no_identity string)(tipe, no_tipe string){
 
 // function save in variable
 func bye(name string) string{
-	defer logging()
 	return "bye "+name
 }
 
 // function as parameter
 func showComment(word string, filter func(string)string) string{
-	defer logging()
 	filteredWord := filter
 	return filteredWord(word)
 }
@@ -55,9 +51,22 @@ func faktorial(val int)int{
 	}
 }
 
-// function for defer
+// function for defer and recover
 func logging(){
-	println("Ini adalah log")
+	message := recover()
+	if message != nil{
+		println("Terjadi Error: ", message)
+	}
+
+	println("Ini adalah log aplikasi yang telah di eksekusi")
+}
+
+func devide(val1 int, val2 int) float32{
+	defer logging()
+	if val2 == 0{
+		panic("Can Not devide by zero")
+	}
+	return float32(val1/val2)
 }
 
 func main() {
@@ -90,4 +99,9 @@ func main() {
 
 	faktorialBilangan := faktorial
 	println(faktorialBilangan(3))
+
+	// implement defer, panic and recover
+	result:=devide(2,0)
+	println(result)
+	println("Huh")
 }
